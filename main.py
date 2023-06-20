@@ -1,5 +1,5 @@
 import fcntl, termios, struct
-#import random
+import random
 import time
 import os
 #from tabulate import tabulate
@@ -10,7 +10,7 @@ def slep2():
 def slep3():
   time.sleep(3)
 
-
+#Find terminal size
 def terminal_size():
       th, tw, hp, wp = struct.unpack('HHHH',
           fcntl.ioctl(0, termios.TIOCGWINSZ,
@@ -20,20 +20,43 @@ def terminal_size():
       return tw, th
 terminal_size()
 
-
+#title layout
 def title():
   print(" * *"*int(width/4))
   print("~ THE MATH QUIZ ~".center(width))
   print(" * *"*int(width/4))
   print("\n")
 title()
+
+#clearing screen and printing title
 def clr():
   os.system('clear')
   title()
+#question1 = (f"what is: {random.randint(0,11)} + {random.randint(0,11)}")
+#math questions setup
+class maths:
+  #question1 = (f"what is: {random.randint(0,11)} + {random.randint(0,11)}")
+  global question1
+  global question2
+  def __init__(self, question1, question2):
+    self.question1 = question1
+    self.question2 = question2
+
+
+
+
+
+
+
+maths1 = ((f"what is: {random.randint(0,11)} + {random.randint(0,11)}"), 0)
+
+
+#asks for name
 print("What is your name?".center(width))
 inputname = True
 while inputname == True:
   name = input()
+  #name checker
   if not name.isalpha():
     print("Please enter a real name")
   elif name.isalpha():
@@ -46,6 +69,7 @@ while inputname == True:
   else:
     print("Please enter a real name")
 
+#spart 1 of lvl choosing 
 def choosediff():
   print("Choose your difficulty".center(width))
   print("1 = Easy       ".center(width))
@@ -54,6 +78,8 @@ def choosediff():
   print("4 = Extreme    ".center(width))
   print("5 = IMPOSSIBLE ".center(width))
 choosediff()
+
+
 def chooseword():
   global word
   global levelchoosing
@@ -61,19 +87,19 @@ def chooseword():
   while levelchoosing == True:
     lvlchoice = input()
     if lvlchoice == "1":
-      word = random.choice(lvl1_words)
+      word = random.choice(lvl1_math)
       levelchoosing = False
     elif lvlchoice == "2":
-      word = random.choice(lvl2_words)
+      word = random.choice(lvl2_math)
       levelchoosing = False
     elif lvlchoice == "3":
-      word = random.choice(lvl3_words)
+      word = random.choice(lvl3_math)
       levelchoosing = False
     elif lvlchoice == "4":
-      word = random.choice(lvl4_words)
+      word = random.choice(lvl4_math)
       levelchoosing = False
     elif lvlchoice == "5":
-      word = random.choice(lvl5_words)
+      word = random.choice(lvl5_math)
       levelchoosing = False
     else:
       print("Please enter a number from 1 to 5")
