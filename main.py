@@ -2,7 +2,7 @@ import fcntl, termios, struct
 #import random
 import time
 import os
-import tabulate
+#from tabulate import tabulate
 def slep1():
   time.sleep(1)
 def slep2():
@@ -20,9 +20,9 @@ def terminal_size():
       return tw, th
 terminal_size()
 
-table = [['First Name', 'Last Name', 'Age'], 
-         ['John', 'Smith', 39], 
-         ['Mary', 'Jane', 25], 
-         ['Jennifer', 'Doe', 28]]
-
-print(tabulate(table))
+def title():
+  print(" * *"*int(width/4))
+  print("~ THE MATH QUIZ ~".center(width))
+  print(" * *"*int(width/4))
+  print("\n")
+title()
