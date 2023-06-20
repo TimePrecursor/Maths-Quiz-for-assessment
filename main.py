@@ -26,3 +26,18 @@ def title():
   print(" * *"*int(width/4))
   print("\n")
 title()
+print("What is your name?".center(width))
+inputname = True
+while inputname == True:
+  name = input()
+  if not name.isalpha():
+    print("Please enter a real name")
+  elif name.isalpha():
+    print("\n")
+    print(f"Welcome {name} to ~ THE MATH QUIZ ~".center(width))
+    inputname = False
+    slep2()
+    clr()  
+  else:
+    print("Please enter a real name")
+    
