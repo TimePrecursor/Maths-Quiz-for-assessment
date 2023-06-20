@@ -34,21 +34,10 @@ def clr():
   title()
 #question1 = (f"what is: {random.randint(0,11)} + {random.randint(0,11)}")
 #math questions setup
+operations = ["+","-","x"]
+
 class maths:
-  #question1 = (f"what is: {random.randint(0,11)} + {random.randint(0,11)}")
-  global question1
-  global question2
-  def __init__(self, question1, question2):
-    self.question1 = question1
-    self.question2 = question2
-
-
-
-
-
-
-
-maths1 = ((f"what is: {random.randint(0,11)} + {random.randint(0,11)}"), 0)
+  question1 = ((f"what is: {random.randint(0,11)} {random.choice(operations)} {random.randint(0,11)}"))
 
 
 #asks for name
