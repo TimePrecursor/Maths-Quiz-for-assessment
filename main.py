@@ -32,12 +32,23 @@ title()
 def clr():
   os.system('clear')
   title()
-#question1 = (f"what is: {random.randint(0,11)} + {random.randint(0,11)}")
-#math questions setup
-operations = ["+","-","x"]
 
-class maths:
-  question1 = ((f"what is: {random.randint(0,11)} {random.choice(operations)} {random.randint(0,11)}"))
+#math questions setup
+def question():
+  global question1
+  global pt1
+  global pt2
+  global pt3
+  e = random.randint(1,3)
+  if e == 1:
+    pt3 = "+"
+  elif e == 2:
+    pt3 = "-"
+  elif e == 2:
+    pt3 = "x"
+  pt1 = random.randint(0,11)
+  pt2 = random.randint(0,11)
+  question1 = ((f"what is: {pt1} {pt3} {pt2}"))
 
 
 #asks for name
@@ -58,37 +69,7 @@ while inputname == True:
   else:
     print("Please enter a real name")
 
-#spart 1 of lvl choosing 
-def choosediff():
-  print("Choose your difficulty".center(width))
-  print("1 = Easy       ".center(width))
-  print("2 = Normal     ".center(width))
-  print("3 = Hard       ".center(width))
-  print("4 = Extreme    ".center(width))
-  print("5 = IMPOSSIBLE ".center(width))
-choosediff()
-
-
-def chooseword():
-  global word
-  global levelchoosing
-  global lvlchoice
-  while levelchoosing == True:
-    lvlchoice = input()
-    if lvlchoice == "1":
-      word = random.choice(lvl1_math)
-      levelchoosing = False
-    elif lvlchoice == "2":
-      word = random.choice(lvl2_math)
-      levelchoosing = False
-    elif lvlchoice == "3":
-      word = random.choice(lvl3_math)
-      levelchoosing = False
-    elif lvlchoice == "4":
-      word = random.choice(lvl4_math)
-      levelchoosing = False
-    elif lvlchoice == "5":
-      word = random.choice(lvl5_math)
-      levelchoosing = False
-    else:
-      print("Please enter a number from 1 to 5")
+print("\n")
+question()
+print(question1.center(width))
+answer = input()
