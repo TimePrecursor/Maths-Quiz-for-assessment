@@ -4,7 +4,7 @@ import time
 import os
 lastscore = 0
 
-#from tabulate import tabulate
+#creating the sleep timers (for aesthetic purposes only)
 def slep1():
   time.sleep(1)
 def slep2():
@@ -12,7 +12,7 @@ def slep2():
 def slep3():
   time.sleep(3)
 
-#Find terminal size
+#find terminal size
 def terminal_size():
   th, tw, hp, wp = struct.unpack(
     'HHHH', fcntl.ioctl(0, termios.TIOCGWINSZ, struct.pack('HHHH', 0, 0, 0,
@@ -22,7 +22,7 @@ def terminal_size():
   return tw, th
 terminal_size()
 
-#title layout
+#main title layout
 def title():
   print(" * *" * int(width / 4))
   print("~ THE MATH QUIZ ~".center(width))
@@ -56,41 +56,45 @@ def question():
     pt1 = random.randint(0, 6)
     pt2 = random.randint(0, 6)
     answer_is = ((pt1) * (pt2))
+  #the answer for the question (to be checked with later)
   question1 = ((f"what is: {pt1} {pt3} {pt2}"))
+
 
 #asks for name
 print("What is your name?".center(width))
 inputname = True
 while inputname == True:
   name = input()
-  #name checker
+  #name checker (it wont allow non letters)
   if not name.isalpha():
     print("Please enter a real name")
   elif name.isalpha():
     print("\n")
     slep1()
+    #welcoming the player
     print(f"Welcome {name} to ~ THE MATH QUIZ ~".center(width))
     inputname = False
     slep2()
     clr()
   else:
+    #if the input contains non letters
     print("Please enter a real name")
-
 print("\n")
 question()
 print(question1.center(width))
-checkanswer = True
-questiontries = 1
 
 
+#answer checker fuction set up (self explanitory)
 def answer_checker():
   global checkanswer
   global questiontries
   checkanswer = True
   questiontries = 1
   while checkanswer == True:
+    #counting to 2, if over, the next question begins
     questiontries += 1
     answer = str(input())
+    #Had a problem earlier with input not being a int:
     if answer == str(answer_is):
       print("correct")
       checkanswer = False
@@ -100,6 +104,19 @@ def answer_checker():
     else:
       print("\nWrong agian!  Next qeustion...".center(width))
       checkanswer = False
+#activates the answer checker function
 answer_checker()
+
+
+
+
+
+
+
+
+
+
+
+
 
 print("\n\nDONE")
