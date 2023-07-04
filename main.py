@@ -39,17 +39,22 @@ def question():
   global pt1
   global pt2
   global pt3
+  global answer_is
   e = random.randint(1,3)
-  if e == 1:
-    pt3 = "+"
-  elif e == 2:
-    pt3 = "-"
-  elif e == 2:
-    pt3 = "x"
   pt1 = random.randint(0,11)
   pt2 = random.randint(0,11)
+  if e == 1:
+    pt3 = "+"
+    answer_is = (pt1+pt2)
+  elif e == 2:
+    pt3 = "-"
+    answer_is = (pt1-pt2)
+  elif e == 3:
+    pt3 = "x"
+    answer_is = ((pt1)*(pt2))
   question1 = ((f"what is: {pt1} {pt3} {pt2}"))
 
+  
 
 #asks for name
 print("What is your name?".center(width))
@@ -72,4 +77,13 @@ while inputname == True:
 print("\n")
 question()
 print(question1.center(width))
-answer = input()
+checkanswer = True
+while checkanswer == True:
+  answer = str(input())
+  print(answer_is)  
+  if answer == str(answer_is):
+    print("correct")
+    checkanswer = False
+  else:
+    print("wrong")
+print("\nDONE")
