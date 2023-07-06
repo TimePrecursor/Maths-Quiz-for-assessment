@@ -1,3 +1,5 @@
+#The folowing code is completely original and of my own design. 
+
 import fcntl, termios, struct
 import random
 import time
