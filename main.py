@@ -68,7 +68,7 @@ inputname = True
 while inputname == True:
   name = input()
   #name checker (it wont allow non letters)
-  if not name.isalpha():
+  if not name.isalpha() or len(name)<2:
     print("Please enter a real name")
   elif name.isalpha():
     print("\n")
@@ -108,17 +108,5 @@ def answer_checker():
       checkanswer = False
 #activates the answer checker function
 answer_checker()
-
-
-
-
-
-
-
-
-
-
-
-
 
 print("\n\nDONE")
