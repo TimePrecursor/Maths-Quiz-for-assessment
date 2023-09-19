@@ -1,18 +1,25 @@
-#The folowing code is completely original and of my own design. 
+#The folowing code is completely original and of my own design.
 
 import fcntl, termios, struct
 import random
 import time
 import os
+
 lastscore = 0
+
 
 #creating the sleep timers (for aesthetic purposes only)
 def slep1():
   time.sleep(1)
+
+
 def slep2():
   time.sleep(2)
+
+
 def slep3():
   time.sleep(3)
+
 
 #find terminal size
 def terminal_size():
@@ -22,7 +29,10 @@ def terminal_size():
   global width
   width = tw
   return tw, th
+
+
 terminal_size()
+
 
 #main title layout
 def title():
@@ -30,12 +40,16 @@ def title():
   print("~ THE MATH QUIZ ~".center(width))
   print(" * *" * int(width / 4))
   print("\n")
+
+
 title()
+
 
 #clearing screen and printing title
 def clr():
   os.system('clear')
   title()
+
 
 #math questions setup
 def question():
@@ -68,7 +82,7 @@ inputname = True
 while inputname == True:
   name = input()
   #name checker (it wont allow non letters)
-  if not name.isalpha() or len(name)<2:
+  if not name.isalpha() or len(name) < 2:
     print("Please enter a real name")
   elif name.isalpha():
     print("\n")
@@ -106,7 +120,9 @@ def answer_checker():
     else:
       print("\nWrong agian!  Next qeustion...".center(width))
       checkanswer = False
+
+
 #activates the answer checker function
 answer_checker()
 
-print("\n\nDONE")
+print("\n\nTHANKS FOR PLAYING")
